@@ -7,6 +7,7 @@ import ErrorPage from "../components/ErrorPage";
 import User from "../pages/User";
 import Posts from "../pages/Posts";
 import PostDetail from "../pages/PostDetail";
+import { fetchPostDetail } from "../api/posts";
 
 const login = false;
 
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
         path: "posts",
         element: <Posts />,
       },
-      { path: "posts/:id", element: <PostDetail /> },
+      { 
+        path: "posts/:id", 
+        element: <PostDetail />, 
+        loader: fetchPostDetail
+       },
       { path: "redirect", element: <Navigate to={login ? "/" : "/404"} /> },
       { path: "*", element: <ErrorPage /> },
     ],
