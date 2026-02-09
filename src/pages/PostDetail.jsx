@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
 import { useLoaderData } from "react-router";
+import { Outlet } from "react-router";
 
 export default function PostDetail() {
     const post = useLoaderData();
@@ -10,5 +11,6 @@ export default function PostDetail() {
         <p>id:{post.id}</p>
         <p>userId:{post.userId}</p>
         <p>{post.body}</p>
+        <Outlet />
     </div>
 }
